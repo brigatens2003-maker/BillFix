@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BillFix Free</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f6f4;
+  color: #17231d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+header {
+  background: white;
+  padding: 22px 18px;
+  border-bottom: 1px solid #dfe6e1;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.tagline {
+  color: #68766e;
+  font-size: 14px;
+}
+
+main {
+  max-width: 520px;
+  margin: auto;
+  padding: 16px;
+}
+
+.hero {
+  background: #17231d;
+  color: white;
+  border-radius: 22px;
+  padding: 22px;
+}
+
+.hero small {
+  opacity: .7;
+}
+
+.big {
+  font-size: 40px;
+  font-weight: 900;
+  margin: 5px 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.stat {
+  background: #29352f;
+  border-radius: 13px;
+  padding: 12px;
+}
+
+.stat small {
+  opacity: .7;
+}
+
+.stat strong {
+  display: block;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #dfe6e1;
+  border-radius: 18px;
+  padding: 17px;
+  margin-top: 14px;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+
+button {
+  width: 100%;
+  min-height: 46px;
+  border: 0;
+  border-radius: 13px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primary {
+  background: #176b4b;
+  color: white;
+}
+
+.secondary {
+  background: #e8efea;
+  color: #17231d;
+  margin-top: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf0ee;
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.name {
+  font-weight: 750;
+}
+
+.muted {
+  color: #718078;
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.money {
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.notice {
+  margin-top: 14px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #e8f4ed;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.warning {
+  background: #fff1d3;
+}
+
+.danger {
+  background: #fde7e5;
+}
+
+.empty {
+  color: #75827a;
+  font-size: 14px;
+  padding: 7px 0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  align-items: flex-end;
+  justify-content: center;
+  padding: 12px;
+  z-index: 10;
+}
+
+.sheet {
+  background: white;
+  border-radius: 22px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 92vh;
+  overflow: auto;
+}
+
+.modal-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  background: #edf1ee;
+  font-size: 22px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 750;
+  margin-top: 13px;
+}
+
+input,
+select {
+  width: 100%;
+  height: 48px;
+  margin-top: 6px;
+  border: 1px solid #ccd6cf;
+  border-radius: 11px;
+  padding: 10px;
+  font-size: 16px;
+  background: white;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.help a {
+  display: block;
+  color: #176b4b;
+  text-decoration: none;
+  font-weight: 750;
+  padding: 7px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BILLFIX</div>
+  <div class="tagline">Free. Private. No judgement.</div>
+</header>
+
+<main>
+
+<section class="hero">
+  <small>MONEY LEFT THIS MONTH</small>
+  <div class="big" id="moneyLeft">£0.00</div>
+  <div style="opacity:.8">
+    after regular bills and minimum debt payments
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <small>Income</small>
+      <strong id="incomeTotal">£0.00</strong>
+    </div>
+
+    <div class="stat">
+      <small>Commitments</small>
+      <strong id="commitments">£0.00</strong>
+    </div>
+  </div>
+
+  <button class="primary" id="incomeButton">
+    ＋ Enter monthly income
+  </button>
+</section>
+
+<div class="notice" id="status">
+  Start by entering your monthly income.
+</div>
+
+<section class="card">
+<h2>💷 Monthly income</h2>
+
+<div class="row">
+  <span>Take-home income</span>
+  <span class="money" id="incomeLine">£0.00</span>
+</div>
+
+<button class="secondary" id="incomeButton2">
+  ＋ Set income
+</button>
+</section>
+
+<section class="card">
+<h2>🧾 Bills & regular spending</h2>
+
+<div id="billList">
+  <div class="empty">Nothing added yet.</div>
+</div>
+
+<button class="secondary" id="billButton">
+  ＋ Add a bill
+</button>
+</section>
+
+<section class="card">
+<h2>💳 Debt planner</h2>
+
+<div id="debtList">
+  <div class="empty">Nothing added yet.</div>
+</div>
+
+<button class="secondary" id="debtButton">
+  ＋ Add a debt
+</button>
+
+<div class="muted" id="debtTotal"></div>
+</section>
+
+<section class="card">
+<h2>🗓️ Estimated debt payoff</h2>
+
+<div id="payoff">
+  <div class="empty">
+    Add a debt to see an estimated payoff date.
+  </div>
+</div>
+</section>
+
+<section class="card">
+<h2>🔐 Privacy first</h2>
+
+<div class="muted">
+BillFix does not need bill uploads, bank logins,
+account numbers or payment details.
+
+You enter only the information you choose.
+</div>
+</section>
+
+<section class="card help">
+<h2>💛 Need debt help?</h2>
+
+<div class="muted">
+If your figures suggest that you are struggling,
+BillFix will not recommend borrowing more.
+
+Free independent support is available.
+</div>
+
+<a href="https://www.citizensadvice.org.uk/" target="_blank">
+Citizens Advice →
+</a>
+
+<a href="https://www.stepchange.org/" target="_blank">
+StepChange →
+</a>
+
+<a href="https://nationaldebtline.org/" target="_blank">
+National Debtline →
+</a>
+
+<a href="https://www.moneyhelper.org.uk/" target="_blank">
+MoneyHelper →
+</a>
+</section>
+
+</main>
+
+
+<!-- INCOME -->
+
+<div class="modal" id="incomeModal">
+
+<div class="sheet">
+
+<div class="modal-title">
+<h2>💷 Your monthly income</h2>
+<button class="close" data-close="incomeModal">×</button>
+</div>
+
+<label>
+Take-home income (£)
+
+<input
+id="incomeInput"
+type="number"
+inputmode="decimal"
+min="0"
+step="0.01"
+placeholder="2100">
+</label>
+
+<button class="primary" id="saveIncome">
+Save income
+</button>
+
+</div>
+</div>
+
+
+<!-- BILL -->
+
+<div class="modal" id="billModal">
+
+<div class="sheet">
+
+<div class="modal-title">
+<h2>🧾 Add a bill</h2>
+<button class="close" data-close="billModal">×</button>
+</div>
+
+<label>
+Bill type
+
+<select id="billType">
+<option>Mobile</option>
+<option>Broadband</option>
+<option>Energy</option>
+<option>Insurance</option>
+<option>TV & Streaming</option>
+<option>Car</option>
+<option>Food</option>
+<option>Transport</option>
+<option>Other</option>
+</select>
+</label>
+
+<label>
+Name / provider
+
+<input
+id="billName"
+type="text"
+placeholder="e.g. EE">
+</label>
+
+<label>
+Amount (£)
+
+<input
+id="billAmount"
+type="number"
+inputmode="decimal"
+min="0"
+step="0.01"
+placeholder="74">
+</label>
+
+<label>
+How often?
+
+<select id="billFrequency">
+<option value="monthly">Monthly</option>
+<option value="weekly">Weekly</option>
+<option value="yearly">Yearly</option>
+</select>
+</label>
+
+<label>
+Renewal date
+<span class="muted">(optional)</span>
+
+<input
+id="billDate"
+type="date">
+</label>
+
+<button class="primary" id="saveBill">
+Add bill
+</button>
+
+</div>
+</div>
+
+
+<!-- DEBT -->
+
+<div class="modal" id="debtModal">
+
+<div class="sheet">
+
+<div class="modal-title">
+<h2>💳 Add a debt</h2>
+<button class="close" data-close="debtModal">×</button>
+</div>
+
+<label>
+Debt name
+
+<input
+id="debtName"
+type="text"
+placeholder="e.g. Credit card">
+</label>
+
+<div class="two">
+
+<label>
+Balance (£)
+
+<input
+id="debtBalance"
+type="number"
+inputmode="decimal"
+min="0"
+step="0.01"
+placeholder="4000">
+</label>
+
+<label>
+Minimum payment (£)
+
+<input
+id="debtMinimum"
+type="number"
+inputmode="decimal"
+min="0"
+step="0.01"
+placeholder="150">
+</label>
+
+</div>
+
+<label>
+Interest rate
+<span class="muted">(optional APR %)</span>
+
+<input
+id="debtRate"
+type="number"
+inputmode="decimal"
+min="0"
+step="0.01"
+placeholder="24.9">
+</label>
+
+<label>
+Extra payment
+<span class="muted">(optional £ per month)</span>
+
+<input
+id="debtExtra"
+type="number"
+inputmode="decimal"
+min="0"
+step="0.01"
+placeholder="0">
+</label>
+
+<button class="primary" id="saveDebt">
+Add debt
+</button>
+
+</div>
+</div>
+
+
+<script>
+
+let income = 0;
+let bills = [];
+let debts = [];
+
+function money(value) {
+
+  value = Number(value) || 0;
+
+  return "£" + Math.max(0,value).toLocaleString(
+    "en-GB",
+    {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }
+  );
+}
+
+
+function monthlyAmount(amount, frequency) {
+
+  amount = Number(amount) || 0;
+
+  if (frequency === "weekly") {
+    return amount * 52 / 12;
+  }
+
+  if (frequency === "yearly") {
+    return amount / 12;
+  }
+
+  return amount;
+}
+
+
+function monthsToPay(balance, rate, payment) {
+
+  let b = Number(balance) || 0;
+  let r = (Number(rate) || 0) / 100 / 12;
+  let p = Number(payment) || 0;
+
+  if (b <= 0) return 0;
+
+  if (p <= 0) return Infinity;
+
+  if (r > 0 && p <= b * r) {
+    return Infinity;
+  }
+
+  for (let month = 1; month <= 1200; month++) {
+
+    b = b + (b * r) - p;
+
+    if (b <= 0) {
+      return month;
+    }
+  }
+
+  return Infinity;
+}
+
+
+function payoffDate(months) {
+
+  const date = new Date();
+
+  date.setDate(1);
+
+  date.setMonth(
+    date.getMonth() + months
+  );
+
+  return date.toLocaleDateString(
+    "en-GB",
+    {
+      month: "long",
+      year: "numeric"
+    }
+  );
+}
+
+
+function render() {
+
+  const billTotal = bills.reduce(
+    (total,bill) => total + bill.monthly,
+    0
+  );
+
+  const minimumDebtPayments = debts.reduce(
+    (total,debt) => total + debt.minimum,
+    0
+  );
+
+  const totalCommitments =
+    billTotal + minimumDebtPayments;
+
+  const left =
+    income - totalCommitments;
+
+
+  document.getElementById("moneyLeft").textContent =
+    money(left);
+
+  document.getElementById("incomeTotal").textContent =
+    money(income);
+
+  document.getElementById("incomeLine").textContent =
+    money(income);
+
+  document.getElementById("commitments").textContent =
+    money(totalCommitments);
+
+
+  /* BILLS */
+
+  const billList =
+    document.getElementById("billList");
+
+  if (!bills.length) {
+
+    billList.innerHTML =
+      '<div class="empty">Nothing added yet.</div>';
+
+  } else {
+
+    billList.innerHTML =
+      bills.map((bill,index) => `
+
+        <div class="row">
+
+          <span>
+            <span class="name">
+              ${bill.name}
+            </span>
+
+            <div class="muted">
+              ${bill.type}
+              · ${money(bill.monthly)}/month
+              ${bill.date
+                ? " · renewal " + bill.date
+                : ""}
+            </div>
+          </span>
+
+          <button
+            class="secondary"
+            style="width:auto;margin:0;padding:8px 10px;font-size:12px"
+            onclick="removeBill(${index})">
+
+            Remove
+
+          </button>
+
+        </div>
+
+      `).join("");
+
+  }
+
+
+  /* DEBTS */
+
+  const debtList =
+    document.getElementById("debtList");
+
+  if (!debts.length) {
+
+    debtList.innerHTML =
+      '<div class="empty">Nothing added yet.</div>';
+
+  } else {
+
+    debtList.innerHTML =
+      debts.map((debt,index) => `
+
+        <div class="row">
+
+          <span>
+
+            <span class="name">
+              ${debt.name}
+            </span>
+
+            <div class="muted">
+
+              Balance ${money(debt.balance)}
+              · Minimum ${money(debt.minimum)}
+
+              ${debt.rate
+                ? " · " + debt.rate + "% APR"
+                : ""}
+
+            </div>
+
+          </span>
+
+          <button
+            class="secondary"
+            style="width:auto;margin:0;padding:8px 10px;font-size:12px"
+            onclick="removeDebt(${index})">
+
+            Remove
+
+          </button>
+
+        </div>
+
+      `).join("");
+
+  }
+
+
+  const totalDebt =
+    debts.reduce(
+      (total,debt) => total + debt.balance,
+      0
+    );
+
+  document.getElementById("debtTotal").textContent =
+    debts.length
+      ? "Total debt: " + money(totalDebt)
+      : "";
+
+
+  /* PAYOFF */
+
+  const payoff =
+    document.getElementById("payoff");
+
+  if (!debts.length) {
+
+    payoff.innerHTML =
+      '<div class="empty">Add a debt to see an estimated payoff date.</div>';
+
+  } else {
+
+    payoff.innerHTML =
+      debts.map(debt => {
+
+        const payment =
+          debt.minimum + debt.extra;
+
+        const months =
+          monthsToPay(
+            debt.balance,
+            debt.rate,
+            payment
+          );
+
+        return `
+
+          <div class="row">
+
+            <span>
+
+              <span class="name">
+                ${debt.name}
+              </span>
+
+              <div class="muted">
+                Planned payment:
+                ${money(payment)}/month
+              </div>
+
+            </span>
+
+            <span class="money">
+
+              ${
+                isFinite(months)
+                  ? payoffDate(months)
+                  : "Needs review"
+              }
+
+            </span>
+
+          </div>
+
+        `;
+
+      }).join("");
+
+  }
+
+
+  /* SAFETY MESSAGE */
+
+  const status =
+    document.getElementById("status");
+
+
+  if (income <= 0) {
+
+    status.className = "notice";
+
+    status.innerHTML =
+      "<b>Start with your income.</b><br>" +
+      "Then add your bills, spending and debts.";
+
+  }
+
+  else if (left < 0) {
+
+    status.className =
+      "notice danger";
+
+    status.innerHTML =
+      "<b>Your entered commitments are higher than your income.</b><br>" +
+      "BillFix will not recommend borrowing more. " +
+      "Please consider free independent debt advice below.";
+
+  }
+
+  else if (left < income * 0.10) {
+
+    status.className =
+      "notice warning";
+
+    status.innerHTML =
+      "<b>Your budget looks tight.</b><br>" +
+      "There may be little room after regular commitments. " +
+      "Consider reviewing non-essential spending and seek free help " +
+      "if debt is causing difficulty.";
+
+  }
+
+  else {
+
+    status.className =
+      "notice";
+
+    status.innerHTML =
+      "<b>You have " +
+      money(left) +
+      " left after regular commitments.</b><br>" +
+      "This is a guide; everyday spending can vary.";
+
+  }
+
+}
+
+
+function openModal(id) {
+
+  document.getElementById(id).style.display =
+    "flex";
+
+}
+
+
+function closeModal(id) {
+
+  document.getElementById(id).style.display =
+    "none";
+
+}
+
+
+document.getElementById("incomeButton").onclick =
+function() {
+
+  openModal("incomeModal");
+
+};
+
+
+document.getElementById("incomeButton2").onclick =
+function() {
+
+  openModal("incomeModal");
+
+};
+
+
+document.getElementById("billButton").onclick =
+function() {
+
+  openModal("billModal");
+
+};
+
+
+document.getElementById("debtButton").onclick =
+function() {
+
+  openModal("debtModal");
+
+};
+
+
+document.querySelectorAll("[data-close]").forEach(
+  button => {
+
+    button.onclick = function() {
+
+      closeModal(
+        button.dataset.close
+      );
+
+    };
+
+  }
+);
+
+
+document.getElementById("saveIncome").onclick =
+function() {
+
+  const value =
+    Number(
+      document.getElementById("incomeInput").value
+    );
+
+  if (!isFinite(value) || value < 0) {
+
+    alert("Please enter a valid income amount.");
+
+    return;
+  }
+
+  income = value;
+
+  document.getElementById("incomeInput").value = "";
+
+  closeModal("incomeModal");
+
+  render();
+
+};
+
+
+document.getElementById("saveBill").onclick =
+function() {
+
+  const amount =
+    Number(
+      document.getElementById("billAmount").value
+    );
+
+  if (!isFinite(amount) || amount <= 0) {
+
+    alert("Please enter an amount greater than £0.");
+
+    return;
+  }
+
+  bills.push({
+
+    type:
+      document.getElementById("billType").value,
+
+    name:
+      document.getElementById("billName").value.trim()
+      ||
+      document.getElementById("billType").value,
+
+    monthly:
+      monthlyAmount(
+        amount,
+        document.getElementById("billFrequency").value
+      ),
+
+    date:
+      document.getElementById("billDate").value
+
+  });
+
+
+  document.getElementById("billName").value = "";
+  document.getElementById("billAmount").value = "";
+  document.getElementById("billDate").value = "";
+
+  closeModal("billModal");
+
+  render();
+
+};
+
+
+document.getElementById("saveDebt").onclick =
+function() {
+
+  const balance =
+    Number(
+      document.getElementById("debtBalance").value
+    );
+
+  const minimum =
+    Number(
+      document.getElementById("debtMinimum").value
+    );
+
+  const rate =
+    Number(
+      document.getElementById("debtRate").value
+    ) || 0;
+
+  const extra =
+    Number(
+      document.getElementById("debtExtra").value
+    ) || 0;
+
+
+  if (!isFinite(balance) || balance <= 0) {
+
+    alert("Please enter a debt balance greater than £0.");
+
+    return;
+  }
+
+  if (
+    !isFinite(minimum) ||
+    minimum < 0 ||
+    rate < 0 ||
+    extra < 0
+  ) {
+
+    alert("Please check the debt figures.");
+
+    return;
+  }
+
+
+  debts.push({
+
+    name:
+      document.getElementById("debtName").value.trim()
+      ||
+      "Debt",
+
+    balance:
+      balance,
+
+    minimum:
+      minimum,
+
+    rate:
+      rate,
+
+    extra:
+      extra
+
+  });
+
+
+  document.getElementById("debtName").value = "";
+  document.getElementById("debtBalance").value = "";
+  document.getElementById("debtMinimum").value = "";
+  document.getElementById("debtRate").value = "";
+  document.getElementById("debtExtra").value = "";
+
+  closeModal("debtModal");
+
+  render();
+
+};
+
+
+function removeBill(index) {
+
+  bills.splice(index,1);
+
+  render();
+
+}
+
+
+function removeDebt(index) {
+
+  debts.splice(index,1);
+
+  render();
+
+}
+
+
+render();
+
+</script>
+
+</body>
+</html>
