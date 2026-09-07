@@ -7,53 +7,344 @@
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f3f6f4;color:#17231d;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.app{max-width:540px;margin:auto}
-header{background:white;padding:22px 18px;border-bottom:1px solid #dce5df}
-.logo{font-size:30px;font-weight:900}
-.tag{color:#68766e;font-size:14px;margin-top:3px}
-.motto{font-weight:850;margin-top:9px}
-main{padding:16px}
-.hero{background:#17231d;color:white;border-radius:22px;padding:21px}
-.hero small{opacity:.7}
-.big{font-size:40px;font-weight:900;margin:4px 0}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.stat{background:#29352f;border-radius:13px;padding:11px}
-.stat small{opacity:.7}
-.stat b{display:block;font-size:18px;margin-top:3px}
-.card{background:white;border:1px solid #dce5df;border-radius:18px;padding:16px;margin-top:14px}
-.title{font-size:18px;font-weight:850;margin-bottom:10px}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #edf0ee}
-.row:last-child{border-bottom:0}
-.name{font-weight:750}
-.muted{font-size:13px;color:#718078;margin-top:4px}
-.money{font-weight:800;white-space:nowrap}
-.btn{border:0;border-radius:13px;padding:12px;font-size:15px;font-weight:800}
-.primary{background:#176b4b;color:white}
-.secondary{background:#e8efea;color:#17231d}
-.full{width:100%;min-height:46px}
-.small{min-height:36px;padding:7px 10px;font-size:12px}
-.notice{margin-top:14px;padding:14px;border-radius:15px;background:#e8f4ed;font-size:14px;line-height:1.5}
-.tip{margin-top:10px;padding:12px;border-radius:13px;background:#fff7df;font-size:14px;line-height:1.5}
-.warning{background:#fff1d3}
-.danger{background:#fde7e5}
-.empty{color:#75827a;font-size:14px;padding:7px 0}
-.paid{opacity:.65}
-.paid .name{text-decoration:line-through}
-.check{width:36px;height:36px;border:0;border-radius:9px;background:#e8efea;color:#176b4b;font-size:18px}
-.check.on{background:#176b4b;color:white}
-.billrow{display:flex;align-items:center;gap:9px;min-width:0}
-.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:#e8efea;font-size:11px;font-weight:750}
-.badge.paidbadge{background:#176b4b;color:white}
-label{display:block;font-size:13px;font-weight:750;margin-top:12px}
-input,select{width:100%;height:48px;margin-top:5px;border:1px solid #ccd6cf;border-radius:11px;padding:10px;font-size:16px;background:white}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.help a{display:block;color:#176b4b;text-decoration:none;font-weight:750;padding:6px 0}
-.modal{display:none;position:fixed;inset:0;background:#0008;align-items:flex-end;justify-content:center;padding:12px;z-index:10}
-.sheet{background:white;border-radius:22px;padding:18px;width:100%;max-width:520px;max-height:92vh;overflow:auto}
-.head{display:flex;justify-content:space-between;align-items:center}
-.close{width:40px;height:40px;border:0;border-radius:50%;background:#edf1ee;font-size:22px}
-.buttons{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+
+body{
+margin:0;
+background:#f3f6f4;
+color:#17231d;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+.app{
+max-width:540px;
+margin:auto;
+}
+
+header{
+background:white;
+padding:22px 18px;
+border-bottom:1px solid #dce5df;
+}
+
+.logo{
+font-size:30px;
+font-weight:900;
+}
+
+.tag{
+color:#68766e;
+font-size:14px;
+margin-top:3px;
+}
+
+.motto{
+font-weight:850;
+margin-top:9px;
+}
+
+main{
+padding:16px;
+}
+
+.hero{
+background:#17231d;
+color:white;
+border-radius:22px;
+padding:21px;
+}
+
+.hero small{
+opacity:.7;
+}
+
+.big{
+font-size:40px;
+font-weight:900;
+margin:4px 0;
+}
+
+.stats{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:14px;
+}
+
+.stat{
+background:#29352f;
+border-radius:13px;
+padding:11px;
+}
+
+.stat small{
+opacity:.7;
+}
+
+.stat b{
+display:block;
+font-size:18px;
+margin-top:3px;
+}
+
+.card{
+background:white;
+border:1px solid #dce5df;
+border-radius:18px;
+padding:16px;
+margin-top:14px;
+}
+
+.title{
+font-size:18px;
+font-weight:850;
+margin-bottom:10px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+padding:11px 0;
+border-bottom:1px solid #edf0ee;
+}
+
+.row:last-child{
+border-bottom:0;
+}
+
+.name{
+font-weight:750;
+}
+
+.muted{
+font-size:13px;
+color:#718078;
+margin-top:4px;
+}
+
+.money{
+font-weight:800;
+white-space:nowrap;
+}
+
+.btn{
+border:0;
+border-radius:13px;
+padding:12px;
+font-size:15px;
+font-weight:800;
+cursor:pointer;
+}
+
+.primary{
+background:#176b4b;
+color:white;
+}
+
+.secondary{
+background:#e8efea;
+color:#17231d;
+}
+
+.full{
+width:100%;
+min-height:46px;
+}
+
+.small{
+min-height:36px;
+padding:7px 10px;
+font-size:12px;
+}
+
+.notice{
+margin-top:14px;
+padding:14px;
+border-radius:15px;
+background:#e8f4ed;
+font-size:14px;
+line-height:1.5;
+}
+
+.tip{
+margin-top:10px;
+padding:12px;
+border-radius:13px;
+background:#fff7df;
+font-size:14px;
+line-height:1.5;
+}
+
+.danger{
+background:#fde7e5;
+}
+
+.empty{
+color:#75827a;
+font-size:14px;
+padding:7px 0;
+}
+
+.paid{
+opacity:.65;
+}
+
+.paid .name{
+text-decoration:line-through;
+}
+
+.check{
+width:36px;
+height:36px;
+border:0;
+border-radius:9px;
+background:#e8efea;
+color:#176b4b;
+font-size:18px;
+cursor:pointer;
+}
+
+.check.on{
+background:#176b4b;
+color:white;
+}
+
+.billrow{
+display:flex;
+align-items:center;
+gap:9px;
+min-width:0;
+}
+
+.badge{
+display:inline-block;
+padding:4px 8px;
+border-radius:999px;
+background:#e8efea;
+font-size:11px;
+font-weight:750;
+}
+
+.badge.paidbadge{
+background:#176b4b;
+color:white;
+}
+
+label{
+display:block;
+font-size:13px;
+font-weight:750;
+margin-top:12px;
+}
+
+input,
+select{
+width:100%;
+height:48px;
+margin-top:5px;
+border:1px solid #ccd6cf;
+border-radius:11px;
+padding:10px;
+font-size:16px;
+background:white;
+}
+
+.two{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.help a{
+display:block;
+color:#176b4b;
+text-decoration:none;
+font-weight:750;
+padding:6px 0;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#0008;
+align-items:flex-end;
+justify-content:center;
+padding:12px;
+z-index:10;
+}
+
+.sheet{
+background:white;
+border-radius:22px;
+padding:18px;
+width:100%;
+max-width:520px;
+max-height:92vh;
+overflow:auto;
+}
+
+.head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.close{
+width:40px;
+height:40px;
+border:0;
+border-radius:50%;
+background:#edf1ee;
+font-size:22px;
+cursor:pointer;
+}
+
+.buttons{
+display:flex;
+gap:6px;
+flex-wrap:wrap;
+justify-content:flex-end;
+}
+
+.calcTotal{
+font-size:32px;
+font-weight:900;
+margin:10px 0;
+color:#176b4b;
+}
+
+.calcGrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:10px;
+}
+
+.calcBox{
+background:#f3f6f4;
+border-radius:13px;
+padding:12px;
+}
+
+.calcBox small{
+display:block;
+color:#718078;
+margin-bottom:4px;
+}
+
+.calcBox b{
+font-size:18px;
+}
+
+@media(max-width:380px){
+.calcGrid,
+.two,
+.stats{
+grid-template-columns:1fr;
+}
+}
 </style>
 </head>
 
@@ -70,184 +361,648 @@ input,select{width:100%;height:48px;margin-top:5px;border:1px solid #ccd6cf;bord
 <main>
 
 <div class="hero">
+
 <small>MONEY LEFT THIS MONTH</small>
+
 <div class="big" id="left">£0.00</div>
-<div style="opacity:.8">after regular bills and planned debt payments</div>
+
+<div style="opacity:.8">
+After regular bills and planned debt payments
+</div>
 
 <div class="stats">
-<div class="stat"><small>Income</small><b id="incomeTotal">£0.00</b></div>
-<div class="stat"><small>Commitments</small><b id="commitments">£0.00</b></div>
+
+<div class="stat">
+<small>Income</small>
+<b id="incomeTotal">£0.00</b>
 </div>
 
-<button class="btn primary full" id="incomeBtn" style="margin-top:14px">＋ Update income</button>
+<div class="stat">
+<small>Commitments</small>
+<b id="commitments">£0.00</b>
 </div>
+
+</div>
+
+<button
+class="btn primary full"
+id="incomeBtn"
+style="margin-top:14px">
+
+＋ Update income
+
+</button>
+
+</div>
+
 
 <div class="card">
+
 <div class="title">💛 Your BillFix reminder</div>
-<div id="dailyMessage" style="font-size:16px;line-height:1.55;font-weight:650"></div>
-<div class="muted">You don't have to solve everything today. One step at a time.</div>
+
+<div
+id="dailyMessage"
+style="font-size:16px;line-height:1.55;font-weight:650">
 </div>
 
-<div class="notice" id="status">Start by entering your monthly income.</div>
+<div class="muted">
+You don't have to solve everything today. One step at a time.
+</div>
+
+</div>
+
+
+<div class="notice" id="status">
+Start by entering your monthly income.
+</div>
+
+
+<!-- BANK -->
 
 <div class="card">
-<div class="title">🏦 Your bank & borrowing</div>
-<div class="muted">Don't know your exact bank balance? That's okay. Give us your best estimate and update it later.</div>
 
-<label>Current bank balance (£)
-<input id="bankBalance" type="number" step=".01" placeholder="e.g. 250 or -120">
+<div class="title">🏦 Your bank & borrowing</div>
+
+<div class="muted">
+Don't know your exact bank balance? That's okay. Give us your best estimate and update it later.
+</div>
+
+<label>
+Current bank balance (£)
+
+<input
+id="bankBalance"
+type="number"
+step=".01"
+placeholder="e.g. 250 or -120">
+
 </label>
 
-<label>How accurate is this?
+<label>
+How accurate is this?
+
 <select id="bankAccuracy">
 <option value="exact">Exact / checked recently</option>
 <option value="estimate">Best estimate</option>
 <option value="unsure">I'm not sure</option>
 </select>
+
 </label>
 
-<label>Do you have an overdraft?
+<label>
+Do you have an overdraft?
+
 <select id="hasOverdraft">
 <option value="no">No</option>
 <option value="yes">Yes</option>
 <option value="unsure">Not sure</option>
 </select>
+
 </label>
 
 <div id="overdraftDetails" style="display:none">
+
 <div class="two">
 
-<label>Overdraft currently used (£)
-<input id="overdraftUsed" type="number" min="0" step=".01">
+<label>
+Overdraft currently used (£)
+
+<input
+id="overdraftUsed"
+type="number"
+min="0"
+step=".01">
+
 </label>
 
-<label>Overdraft limit (£)
-<input id="overdraftLimit" type="number" min="0" step=".01">
+<label>
+Overdraft limit (£)
+
+<input
+id="overdraftLimit"
+type="number"
+min="0"
+step=".01">
+
 </label>
 
 </div>
+
 </div>
 
-<button class="btn primary full" id="saveBank" style="margin-top:16px">Save bank details</button>
+<button
+class="btn primary full"
+id="saveBank"
+style="margin-top:16px">
+
+Save bank details
+
+</button>
 
 <div class="row">
+
 <span>Estimated money available now</span>
-<span class="money" id="availableNow">£0.00</span>
+
+<span
+class="money"
+id="availableNow">
+
+£0.00
+
+</span>
+
 </div>
 
 <div id="bankAdvice"></div>
+
 </div>
 
-<div class="card">
-<div class="title">📅 Your money calendar</div>
-<div class="muted">You don't need to know your exact payday. Choose the pattern that matches how you get paid.</div>
 
-<label>How do you get paid?
+<!-- PAY CALENDAR -->
+
+<div class="card">
+
+<div class="title">📅 Your money calendar</div>
+
+<div class="muted">
+You don't need to know your exact payday. Choose the pattern that matches how you get paid.
+</div>
+
+<label>
+How do you get paid?
+
 <select id="payType">
-<option value="">Not sure / add dates later</option>
-<option value="monthly">Same date every month</option>
-<option value="last">Last working day of the month</option>
-<option value="four">Every 4 weeks</option>
-<option value="weekly">Every week</option>
+
+<option value="">
+Not sure / add dates later
+</option>
+
+<option value="monthly">
+Same date every month
+</option>
+
+<option value="last">
+Last working day of the month
+</option>
+
+<option value="four">
+Every 4 weeks
+</option>
+
+<option value="weekly">
+Every week
+</option>
+
 </select>
+
 </label>
 
 <div id="payDetails"></div>
 
 <div class="row">
+
 <span>Next payday</span>
-<span class="money" id="nextPay">Not set</span>
+
+<span
+class="money"
+id="nextPay">
+
+Not set
+
+</span>
+
 </div>
 
-<button class="btn primary full" id="savePay">Save pay schedule</button>
-<div id="calendar" style="margin-top:10px"></div>
+<button
+class="btn primary full"
+id="savePay">
+
+Save pay schedule
+
+</button>
+
+<div
+id="calendar"
+style="margin-top:10px">
 </div>
+
+</div>
+
+
+<!-- BILLS -->
 
 <div class="card">
+
 <div class="title">🧾 Bills & regular spending</div>
-<div id="bills"><div class="empty">Nothing added yet.</div></div>
-<button class="btn secondary full" id="billBtn">＋ Add a bill</button>
+
+<div id="bills">
+
+<div class="empty">
+Nothing added yet.
 </div>
 
+</div>
+
+<button
+class="btn secondary full"
+id="billBtn">
+
+＋ Add a bill
+
+</button>
+
+</div>
+
+
+<!-- MONTHLY CALCULATOR -->
+
 <div class="card">
+
+<div class="title">🧮 Monthly money calculator</div>
+
+<div class="muted">
+Add your income and roughly work out your monthly bills. Bills and debt payments already added to BillFix are included automatically.
+</div>
+
+<label>
+Main monthly income (£)
+
+<input
+id="calcIncome"
+type="number"
+min="0"
+step=".01"
+placeholder="e.g. 2100">
+
+</label>
+
+<label>
+Additional monthly income (£)
+
+<input
+id="calcExtraIncome"
+type="number"
+min="0"
+step=".01"
+placeholder="Benefits, second job, etc.">
+
+</label>
+
+<label>
+Rough additional bills (£)
+
+<input
+id="calcRoughBills"
+type="number"
+min="0"
+step=".01"
+placeholder="Bills not added permanently yet">
+
+</label>
+
+<div class="calcGrid">
+
+<div class="calcBox">
+
+<small>Total income</small>
+
+<b id="calcTotalIncome">
+£0.00
+</b>
+
+</div>
+
+
+<div class="calcBox">
+
+<small>Regular commitments</small>
+
+<b id="calcCommitments">
+£0.00
+</b>
+
+</div>
+
+
+<div class="calcBox">
+
+<small>Rough extra bills</small>
+
+<b id="calcExtraBills">
+£0.00
+</b>
+
+</div>
+
+
+<div class="calcBox">
+
+<small>Total monthly bills</small>
+
+<b id="calcTotalBills">
+£0.00
+</b>
+
+</div>
+
+</div>
+
+
+<div
+class="notice"
+style="margin-top:14px">
+
+<div
+style="font-size:14px;font-weight:750">
+
+ESTIMATED MONEY LEFT
+
+</div>
+
+<div
+class="calcTotal"
+id="calcLeft">
+
+£0.00
+
+</div>
+
+<div class="muted">
+This is an estimate to help you plan your month.
+</div>
+
+</div>
+
+
+<button
+class="btn primary full"
+id="saveCalculator"
+style="margin-top:14px">
+
+Calculate monthly money
+
+</button>
+
+</div>
+
+
+<!-- ALLOWANCE -->
+
+<div class="card">
+
 <div class="title">💰 Spending allowance</div>
 
-<label>Monthly allowance (£)
-<input id="allowance" type="number" min="0" step=".01" placeholder="e.g. 400">
+<label>
+Monthly allowance (£)
+
+<input
+id="allowance"
+type="number"
+min="0"
+step=".01"
+placeholder="e.g. 400">
+
 </label>
 
 <div class="row">
+
 <span>Allowance remaining</span>
-<span class="money" id="allowanceLeft">£0.00</span>
+
+<span
+class="money"
+id="allowanceLeft">
+
+£0.00
+
+</span>
+
 </div>
 
-<button class="btn primary full" id="saveAllowance">Update allowance</button>
+<button
+class="btn primary full"
+id="saveAllowance">
+
+Update allowance
+
+</button>
+
 </div>
+
+
+<!-- DEBTS -->
 
 <div class="card">
+
 <div class="title">💳 Debts</div>
-<div id="debts"><div class="empty">Nothing added yet.</div></div>
-<button class="btn secondary full" id="debtBtn">＋ Add a debt</button>
-<div class="muted" id="debtTotal"></div>
+
+<div id="debts">
+
+<div class="empty">
+Nothing added yet.
 </div>
 
+</div>
+
+<button
+class="btn secondary full"
+id="debtBtn">
+
+＋ Add a debt
+
+</button>
+
+<div
+class="muted"
+id="debtTotal">
+</div>
+
+</div>
+
+
+<!-- DEBT UPDATES -->
+
 <div class="card">
-<div class="title">🔄 Monthly debt update</div>
-<div class="muted">Mark your scheduled payment as paid, or update the balance if you paid extra.</div>
+
+<div class="title">
+🔄 Monthly debt update
+</div>
+
+<div class="muted">
+Mark your scheduled payment as paid, or update the balance if you paid extra.
+</div>
+
 <div id="debtUpdates"></div>
+
 </div>
+
+
+<!-- PAYOFF -->
 
 <div class="card">
-<div class="title">🗓️ Estimated debt payoff</div>
-<div class="notice"><b>Estimate only.</b><br>Interest, fees and payment timing may make the real balance different.</div>
+
+<div class="title">
+🗓️ Estimated debt payoff
+</div>
+
+<div class="notice">
+
+<b>Estimate only.</b>
+
+<br>
+
+Interest, fees and payment timing may make the real balance different.
+
+</div>
+
 <div id="payoff"></div>
+
 </div>
 
-<div class="card help">
-<div class="title">💛 Need debt help?</div>
-<a href="https://www.citizensadvice.org.uk/" target="_blank">Citizens Advice →</a>
-<a href="https://www.stepchange.org/" target="_blank">StepChange →</a>
-<a href="https://nationaldebtline.org/" target="_blank">National Debtline →</a>
-<a href="https://www.moneyhelper.org.uk/" target="_blank">MoneyHelper →</a>
-</div>
+
+<!-- DEBT HELP -->
 
 <div class="card help">
-<div class="title">🧠 Looking after you matters</div>
-<div class="motto">Everything can be solved. One step at a time. 💛</div>
-<a href="https://www.nhs.uk/mental-health/" target="_blank">NHS Mental Health →</a>
-<a href="https://www.mind.org.uk/" target="_blank">Mind →</a>
-<a href="https://www.samaritans.org/" target="_blank">Samaritans →</a>
-<a href="https://giveusashout.org/" target="_blank">Shout →</a>
-<a href="https://breathingspace.scot/" target="_blank">Breathing Space Scotland →</a>
+
+<div class="title">
+💛 Need debt help?
+</div>
+
+<a href="https://www.citizensadvice.org.uk/" target="_blank">
+Citizens Advice →
+</a>
+
+<a href="https://www.stepchange.org/" target="_blank">
+StepChange →
+</a>
+
+<a href="https://nationaldebtline.org/" target="_blank">
+National Debtline →
+</a>
+
+<a href="https://www.moneyhelper.org.uk/" target="_blank">
+MoneyHelper →
+</a>
+
+</div>
+
+
+<!-- MENTAL HEALTH -->
+
+<div class="card help">
+
+<div class="title">
+🧠 Looking after you matters
+</div>
+
+<div class="motto">
+Everything can be solved. One step at a time. 💛
+</div>
+
+<a href="https://www.nhs.uk/mental-health/" target="_blank">
+NHS Mental Health →
+</a>
+
+<a href="https://www.mind.org.uk/" target="_blank">
+Mind →
+</a>
+
+<a href="https://www.samaritans.org/" target="_blank">
+Samaritans →
+</a>
+
+<a href="https://giveusashout.org/" target="_blank">
+Shout →
+</a>
+
+<a href="https://breathingspace.scot/" target="_blank">
+Breathing Space Scotland →
+</a>
+
 </div>
 
 </main>
+
 </div>
 
-<div class="modal" id="incomeModal">
+
+<!-- INCOME MODAL -->
+
+<div
+class="modal"
+id="incomeModal">
+
 <div class="sheet">
+
 <div class="head">
-<div class="title">💷 Monthly income</div>
-<button class="close" data-close="incomeModal">×</button>
+
+<div class="title">
+💷 Monthly income
 </div>
 
-<label>Take-home income (£)
-<input id="incomeInput" type="number" min="0" step=".01">
+<button
+class="close"
+data-close="incomeModal">
+
+×
+
+</button>
+
+</div>
+
+<label>
+Take-home income (£)
+
+<input
+id="incomeInput"
+type="number"
+min="0"
+step=".01">
+
 </label>
 
-<button class="btn primary full" id="saveIncome" style="margin-top:16px">Save income</button>
-</div>
+<button
+class="btn primary full"
+id="saveIncome"
+style="margin-top:16px">
+
+Save income
+
+</button>
+
 </div>
 
-<div class="modal" id="billModal">
+</div>
+
+
+<!-- BILL MODAL -->
+
+<div
+class="modal"
+id="billModal">
+
 <div class="sheet">
+
 <div class="head">
-<div class="title">🧾 Add a bill</div>
-<button class="close" data-close="billModal">×</button>
+
+<div class="title">
+🧾 Add a bill
 </div>
 
-<label>Bill type
+<button
+class="close"
+data-close="billModal">
+
+×
+
+</button>
+
+</div>
+
+<label>
+Bill type
+
 <select id="billType">
+
 <option>Mobile</option>
 <option>Broadband</option>
 <option>Energy</option>
@@ -257,305 +1012,709 @@ input,select{width:100%;height:48px;margin-top:5px;border:1px solid #ccd6cf;bord
 <option>Food</option>
 <option>Transport</option>
 <option>Other</option>
+
 </select>
+
 </label>
 
-<label>Name / provider
+<label>
+Name / provider
+
 <input id="billName">
+
 </label>
 
-<label>Amount (£)
-<input id="billAmount" type="number" min="0" step=".01">
+<label>
+Amount (£)
+
+<input
+id="billAmount"
+type="number"
+min="0"
+step=".01">
+
 </label>
 
-<label>Frequency
+<label>
+Frequency
+
 <select id="billFrequency">
-<option value="monthly">Monthly</option>
-<option value="weekly">Weekly</option>
-<option value="yearly">Yearly</option>
+
+<option value="monthly">
+Monthly
+</option>
+
+<option value="weekly">
+Weekly
+</option>
+
+<option value="yearly">
+Yearly
+</option>
+
 </select>
+
 </label>
 
-<label>Payment day
-<input id="billDay" type="number" min="1" max="31">
+<label>
+Payment day
+
+<input
+id="billDay"
+type="number"
+min="1"
+max="31">
+
 </label>
 
-<button class="btn primary full" id="saveBill" style="margin-top:16px">Add bill</button>
-</div>
-</div>
+<button
+class="btn primary full"
+id="saveBill"
+style="margin-top:16px">
 
-<div class="modal" id="debtModal">
-<div class="sheet">
-<div class="head">
-<div class="title">💳 Add a debt</div>
-<button class="close" data-close="debtModal">×</button>
-</div>
+Add bill
 
-<label>Debt type
-<select id="debtType">
-<option value="credit-card">Credit card</option>
-<option value="loan">Loan</option>
-<option value="overdraft">Overdraft</option>
-<option value="catalogue">Catalogue / store finance</option>
-<option value="other">Other</option>
-</select>
-</label>
+</button>
 
-<label>Debt name
-<input id="debtName">
-</label>
-
-<div class="two">
-<label>Balance (£)
-<input id="debtBalance" type="number" min="0" step=".01">
-</label>
-
-<label>Minimum payment (£)
-<input id="debtMinimum" type="number" min="0" step=".01">
-</label>
 </div>
 
-<label>Do you know the interest rate?
-<select id="knowInterest">
-<option value="no">No — that's okay</option>
-<option value="yes">Yes, I know it</option>
-</select>
-</label>
-
-<div id="interestBox" style="display:none">
-<label>Interest rate / APR (%)
-<input id="interest" type="number" min="0" step=".01">
-</label>
 </div>
 
-<label>Payment day
-<input id="debtDay" type="number" min="1" max="31">
-</label>
 
-<label>Planned extra payment (£)
-<input id="extra" type="number" min="0" step=".01" value="0">
-</label>
+<!-- DEBT MODAL -->
 
-<button class="btn primary full" id="saveDebt" style="margin-top:16px">Add debt</button>
-</div>
-</div>
+<div
+class="modal"
+id="debtModal">
 
-<div class="modal" id="updateModal">
 <div class="sheet">
 
 <div class="head">
-<div class="title">🔄 Update debt</div>
-<button class="close" data-close="updateModal">×</button>
+
+<div class="title">
+💳 Add a debt
 </div>
 
-<div id="updateName" class="title"></div>
+<button
+class="close"
+data-close="debtModal">
 
-<div class="row">
-<span>Estimated balance</span>
-<span class="money" id="updateBalance">£0.00</span>
+×
+
+</button>
+
 </div>
 
 <label>
-<input id="minimumPaid" type="checkbox" style="width:auto;height:auto;margin-right:8px">
+Debt type
+
+<select id="debtType">
+
+<option value="credit-card">
+Credit card
+</option>
+
+<option value="loan">
+Loan
+</option>
+
+<option value="overdraft">
+Overdraft
+</option>
+
+<option value="catalogue">
+Catalogue / store finance
+</option>
+
+<option value="other">
+Other
+</option>
+
+</select>
+
+</label>
+
+<label>
+Debt name
+
+<input id="debtName">
+
+</label>
+
+<div class="two">
+
+<label>
+Balance (£)
+
+<input
+id="debtBalance"
+type="number"
+min="0"
+step=".01">
+
+</label>
+
+<label>
+Minimum payment (£)
+
+<input
+id="debtMinimum"
+type="number"
+min="0"
+step=".01">
+
+</label>
+
+</div>
+
+<label>
+Do you know the interest rate?
+
+<select id="knowInterest">
+
+<option value="no">
+No — that's okay
+</option>
+
+<option value="yes">
+Yes, I know it
+</option>
+
+</select>
+
+</label>
+
+<div
+id="interestBox"
+style="display:none">
+
+<label>
+Interest rate / APR (%)
+
+<input
+id="interest"
+type="number"
+min="0"
+step=".01">
+
+</label>
+
+</div>
+
+<label>
+Payment day
+
+<input
+id="debtDay"
+type="number"
+min="1"
+max="31">
+
+</label>
+
+<label>
+Planned extra payment (£)
+
+<input
+id="extra"
+type="number"
+min="0"
+step=".01"
+value="0">
+
+</label>
+
+<button
+class="btn primary full"
+id="saveDebt"
+style="margin-top:16px">
+
+Add debt
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- DEBT UPDATE MODAL -->
+
+<div
+class="modal"
+id="updateModal">
+
+<div class="sheet">
+
+<div class="head">
+
+<div class="title">
+🔄 Update debt
+</div>
+
+<button
+class="close"
+data-close="updateModal">
+
+×
+
+</button>
+
+</div>
+
+<div
+id="updateName"
+class="title">
+</div>
+
+<div class="row">
+
+<span>
+Estimated balance
+</span>
+
+<span
+class="money"
+id="updateBalance">
+
+£0.00
+
+</span>
+
+</div>
+
+<label>
+
+<input
+id="minimumPaid"
+type="checkbox"
+style="width:auto;height:auto;margin-right:8px">
+
 Minimum payment was paid
+
 </label>
 
-<label>Extra paid this month (£)
-<input id="extraPaid" type="number" min="0" step=".01" value="0">
+<label>
+Extra paid this month (£)
+
+<input
+id="extraPaid"
+type="number"
+min="0"
+step=".01"
+value="0">
+
 </label>
 
-<button class="btn primary full" id="saveUpdate" style="margin-top:16px">Save update</button>
+<button
+class="btn primary full"
+id="saveUpdate"
+style="margin-top:16px">
+
+Save update
+
+</button>
 
 </div>
+
 </div>
+
 
 <script>
 
 const monthKey=
 new Date().getFullYear()+"-"+
-String(new Date().getMonth()+1).padStart(2,"0");
+String(
+new Date().getMonth()+1
+).padStart(2,"0");
+
 
 let data={};
 
 try{
-data=JSON.parse(localStorage.getItem("billfix")||"{}");
-}catch(e){}
+
+data=
+JSON.parse(
+localStorage.getItem("billfix")||"{}"
+);
+
+}catch(e){
+
+data={};
+
+}
+
 
 if(data.monthKey!==monthKey){
 
 data.monthKey=monthKey;
 
-data.bills=(data.bills||[]).map(b=>{
+data.bills=
+(data.bills||[]).map(b=>{
+
 b.paid=false;
 b.paidEarly=false;
+
 return b;
+
 });
 
-data.debts=(data.debts||[]).map(d=>{
+data.debts=
+(data.debts||[]).map(d=>{
+
 d.updatedThisMonth=false;
 d.paidThisMonth=false;
 d.extraPaid=0;
+
 return d;
+
 });
 
 }
 
-let income=Number(data.income)||0;
-let bills=Array.isArray(data.bills)?data.bills:[];
-let debts=Array.isArray(data.debts)?data.debts:[];
-let allowance=Number(data.allowance)||0;
-let bankBalance=Number(data.bankBalance)||0;
-let bankAccuracy=data.bankAccuracy||"exact";
-let hasOverdraft=data.hasOverdraft||"no";
-let overdraftUsed=Number(data.overdraftUsed)||0;
-let overdraftLimit=Number(data.overdraftLimit)||0;
+
+let income=
+Number(data.income)||0;
+
+let bills=
+Array.isArray(data.bills)
+?data.bills
+:[];
+
+let debts=
+Array.isArray(data.debts)
+?data.debts
+:[];
+
+let allowance=
+Number(data.allowance)||0;
+
+
+let calcIncome=
+Number(data.calcIncome)||0;
+
+let calcExtraIncome=
+Number(data.calcExtraIncome)||0;
+
+let calcRoughBills=
+Number(data.calcRoughBills)||0;
+
+
+let bankBalance=
+Number(data.bankBalance)||0;
+
+let bankAccuracy=
+data.bankAccuracy||"exact";
+
+let hasOverdraft=
+data.hasOverdraft||"no";
+
+let overdraftUsed=
+Number(data.overdraftUsed)||0;
+
+let overdraftLimit=
+Number(data.overdraftLimit)||0;
+
 let updateIndex=-1;
 
-const $=id=>document.getElementById(id);
+
+const $=
+id=>document.getElementById(id);
+
 
 function money(n){
+
 return "£"+
-Math.max(0,Number(n)||0).toLocaleString(
+Number(
+n||0
+).toLocaleString(
 "en-GB",
 {
 minimumFractionDigits:2,
 maximumFractionDigits:2
 }
 );
+
 }
 
+
 function esc(s){
-return String(s||"").replace(/[&<>"']/g,c=>({
+
+return String(
+s||""
+).replace(
+/[&<>"']/g,
+c=>({
+
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
 '"':"&quot;",
 "'":"&#39;"
-}[c]));
+
+}[c])
+);
+
 }
+
 
 function save(){
 
 data.monthKey=monthKey;
+
 data.income=income;
+
 data.bills=bills;
+
 data.debts=debts;
+
 data.allowance=allowance;
+
+data.calcIncome=calcIncome;
+
+data.calcExtraIncome=calcExtraIncome;
+
+data.calcRoughBills=calcRoughBills;
+
 data.bankBalance=bankBalance;
+
 data.bankAccuracy=bankAccuracy;
+
 data.hasOverdraft=hasOverdraft;
+
 data.overdraftUsed=overdraftUsed;
+
 data.overdraftLimit=overdraftLimit;
+
 
 localStorage.setItem(
 "billfix",
 JSON.stringify(data)
 );
+
 }
 
-function monthly(amount,frequency){
 
-if(frequency==="weekly")
+function monthly(
+amount,
+frequency
+){
+
+if(frequency==="weekly"){
+
 return amount*52/12;
 
-if(frequency==="yearly")
-return amount/12;
-
-return amount;
 }
 
+if(frequency==="yearly"){
+
+return amount/12;
+
+}
+
+return amount;
+
+}
+
+
 const messages=[
+
 "Take a breath. Looking at your money is a positive step.",
+
 "You don't have to fix everything at once. One bill. One payment. One step.",
+
 "Money worries can feel heavy. Making a plan can make things more manageable.",
+
 "Be kind to yourself today. Small progress is still progress.",
+
 "Your worth isn't measured by your bank balance.",
+
 "Small changes can add up.",
+
 "Everything can be solved. One step at a time. 💛"
+
 ];
+
 
 function dailyMessage(){
 
-const day=Math.floor(Date.now()/86400000);
+const day=
+Math.floor(
+Date.now()/86400000
+);
 
 $("dailyMessage").textContent=
-messages[day%messages.length];
+messages[
+day%messages.length
+];
+
 }
+
+
+/* PAYDAY */
 
 function nextPayday(){
 
-const type=data.payType;
-const today=new Date();
+const type=
+data.payType;
+
+const today=
+new Date();
 
 let d=null;
 
+
 if(type==="monthly"){
 
-const day=Number(data.payDay)||0;
+const day=
+Number(data.payDay)||0;
 
-if(!day)return null;
+if(!day){
 
-let y=today.getFullYear();
-let m=today.getMonth();
+return null;
 
-d=new Date(
+}
+
+let y=
+today.getFullYear();
+
+let m=
+today.getMonth();
+
+d=
+new Date(
 y,
 m,
 Math.min(
 day,
-new Date(y,m+1,0).getDate()
+new Date(
+y,
+m+1,
+0
+).getDate()
 )
 );
 
-if(d<new Date(y,m,today.getDate())){
+if(
+d<
+new Date(
+y,
+m,
+today.getDate()
+)
+){
 
 m++;
 
 if(m>11){
+
 m=0;
 y++;
+
 }
 
-d=new Date(
+d=
+new Date(
 y,
 m,
 Math.min(
 day,
-new Date(y,m+1,0).getDate()
+new Date(
+y,
+m+1,
+0
+).getDate()
 )
 );
+
 }
+
 }
+
 
 if(type==="last"){
 
-let y=today.getFullYear();
-let m=today.getMonth();
+let y=
+today.getFullYear();
 
-d=new Date(y,m+1,0);
+let m=
+today.getMonth();
 
-while(d.getDay()===0||d.getDay()===6)
-d.setDate(d.getDate()-1);
+d=
+new Date(
+y,
+m+1,
+0
+);
 
-if(d<new Date(y,m,today.getDate())){
+while(
+d.getDay()===0||
+d.getDay()===6
+){
+
+d.setDate(
+d.getDate()-1
+);
+
+}
+
+if(
+d<
+new Date(
+y,
+m,
+today.getDate()
+)
+){
 
 m++;
 
-d=new Date(y,m+1,0);
+d=
+new Date(
+y,
+m+1,
+0
+);
 
-while(d.getDay()===0||d.getDay()===6)
-d.setDate(d.getDate()-1);
+while(
+d.getDay()===0||
+d.getDay()===6
+){
+
+d.setDate(
+d.getDate()-1
+);
+
 }
+
 }
 
-if(type==="weekly"||type==="four"){
+}
 
-if(!data.firstPayDate)return null;
 
-d=new Date(data.firstPayDate+"T00:00:00");
+if(
+type==="weekly"||
+type==="four"
+){
+
+if(
+!data.firstPayDate
+){
+
+return null;
+
+}
+
+d=
+new Date(
+data.firstPayDate+
+"T00:00:00"
+);
 
 const interval=
-type==="weekly"?7:28;
+type==="weekly"
+?7
+:28;
 
 while(
 d<
@@ -565,12 +1724,19 @@ today.getMonth(),
 today.getDate()
 )
 ){
-d.setDate(d.getDate()+interval);
+
+d.setDate(
+d.getDate()+interval
+);
+
 }
+
 }
 
 return d;
+
 }
+
 
 function formatDate(d){
 
@@ -582,26 +1748,38 @@ month:"long",
 year:"numeric"
 }
 );
+
 }
+
 
 function payDetails(){
 
-const type=$("payType").value;
-const box=$("payDetails");
+const type=
+$("payType").value;
+
+const box=
+$("payDetails");
+
 
 if(type==="monthly"){
 
 box.innerHTML=`
+
 <label>
+
 What day are you normally paid?
+
 <input
 id="payDay"
 type="number"
 min="1"
 max="31"
 value="${data.payDay||""}">
+
 </label>
+
 `;
+
 }
 
 else if(
@@ -610,14 +1788,20 @@ type==="four"
 ){
 
 box.innerHTML=`
+
 <label>
+
 What is your next payday?
+
 <input
 id="firstPayDate"
 type="date"
 value="${data.firstPayDate||""}">
+
 </label>
+
 `;
+
 }
 
 else{
@@ -625,46 +1809,74 @@ else{
 box.innerHTML="";
 
 }
+
 }
+
 
 function renderCalendar(){
 
-const d=nextPayday();
+const d=
+nextPayday();
 
 $("nextPay").textContent=
-d?formatDate(d):"Not set";
+
+d
+?formatDate(d)
+:"Not set";
+
 
 const items=[];
+
 
 bills.forEach(b=>{
 
 if(b.day){
 
 items.push({
+
 day:Number(b.day),
+
 name:b.name,
+
 type:"Bill",
+
 paid:b.paid
+
 });
 
 }
+
 });
+
 
 debts.forEach(d=>{
 
-if(d.day&&d.balance>0){
+if(
+d.day&&
+d.balance>0
+){
 
 items.push({
+
 day:Number(d.day),
+
 name:d.name,
+
 type:"Debt",
+
 paid:!!d.paidThisMonth
+
 });
 
 }
+
 });
 
-items.sort((a,b)=>a.day-b.day);
+
+items.sort(
+(a,b)=>a.day-b.day
+);
+
 
 $("calendar").innerHTML=
 
@@ -675,15 +1887,27 @@ items.length
 <div class="row">
 
 <span>
-<span class="name">${esc(x.name)}</span>
 
-<div class="muted">
-${x.type} · day ${x.day}
-</div>
+<span class="name">
+${esc(x.name)}
 </span>
 
-<span class="badge ${x.paid?"paidbadge":""}">
-${x.paid?"✓ Paid":"Due"}
+<div class="muted">
+
+${x.type}
+· day ${x.day}
+
+</div>
+
+</span>
+
+<span
+class="badge ${x.paid?"paidbadge":""}">
+
+${x.paid
+?"✓ Paid"
+:"Due"}
+
 </span>
 
 </div>
@@ -691,11 +1915,19 @@ ${x.paid?"✓ Paid":"Due"}
 `).join("")
 
 :`
+
 <div class="empty">
+
 Add payment days to see your calendar.
+
 </div>
+
 `;
+
 }
+
+
+/* MAIN RENDER */
 
 function render(){
 
@@ -705,46 +1937,122 @@ bills.reduce(
 0
 );
 
+
 const debtMinimum=
 debts
-.filter(d=>d.balance>0)
-.reduce(
-(a,d)=>a+d.minimum,
-0
-);
-
-const commitments=
-billTotal+debtMinimum;
-
-const left=
-income-commitments;
-
-const unpaidBills=
-bills
-.filter(b=>!b.paid)
-.reduce(
-(a,b)=>a+b.monthly,
-0
-);
-
-const remainingDebtPayments=
-debts
 .filter(
-d=>d.balance>0&&!d.paidThisMonth
+d=>d.balance>0
 )
 .reduce(
 (a,d)=>a+d.minimum,
 0
 );
 
+
+const commitments=
+billTotal+
+debtMinimum;
+
+
+/* CALCULATOR */
+
+const calculatorIncome=
+calcIncome+
+calcExtraIncome;
+
+
+const calculatorBills=
+commitments+
+calcRoughBills;
+
+
+const calculatorLeft=
+calculatorIncome-
+calculatorBills;
+
+
+/* MAIN MONEY LEFT */
+
+const left=
+income-
+commitments;
+
+
+/* CURRENT BANK */
+
+const unpaidBills=
+bills
+.filter(
+b=>!b.paid
+)
+.reduce(
+(a,b)=>a+b.monthly,
+0
+);
+
+
+const remainingDebtPayments=
+debts
+.filter(
+d=>
+d.balance>0&&
+!d.paidThisMonth
+)
+.reduce(
+(a,d)=>a+d.minimum,
+0
+);
+
+
 const availableNow=
-bankBalance-unpaidBills-remainingDebtPayments;
+bankBalance-
+unpaidBills-
+remainingDebtPayments;
 
-$("left").textContent=money(left);
-$("incomeTotal").textContent=money(income);
-$("commitments").textContent=money(commitments);
 
-$("allowance").value=allowance||"";
+/* HERO */
+
+$("left").textContent=
+money(left);
+
+$("incomeTotal").textContent=
+money(income);
+
+$("commitments").textContent=
+money(commitments);
+
+
+/* CALCULATOR VALUES */
+
+$("calcIncome").value=
+calcIncome||"";
+
+$("calcExtraIncome").value=
+calcExtraIncome||"";
+
+$("calcRoughBills").value=
+calcRoughBills||"";
+
+$("calcTotalIncome").textContent=
+money(calculatorIncome);
+
+$("calcCommitments").textContent=
+money(commitments);
+
+$("calcExtraBills").textContent=
+money(calcRoughBills);
+
+$("calcTotalBills").textContent=
+money(calculatorBills);
+
+$("calcLeft").textContent=
+money(calculatorLeft);
+
+
+/* ALLOWANCE */
+
+$("allowance").value=
+allowance||"";
 
 $("allowanceLeft").textContent=
 money(
@@ -752,74 +2060,133 @@ Math.max(
 0,
 Math.min(
 allowance,
-Math.max(0,left)
+Math.max(
+0,
+left
+)
 )
 )
 );
+
+
+/* BANK */
 
 $("bankBalance").value=
 data.bankBalance!==undefined
 ?bankBalance
 :"";
 
-$("bankAccuracy").value=bankAccuracy;
-$("hasOverdraft").value=hasOverdraft;
-$("overdraftUsed").value=overdraftUsed||"";
-$("overdraftLimit").value=overdraftLimit||"";
+$("bankAccuracy").value=
+bankAccuracy;
+
+$("hasOverdraft").value=
+hasOverdraft;
+
+$("overdraftUsed").value=
+overdraftUsed||"";
+
+$("overdraftLimit").value=
+overdraftLimit||"";
+
 
 $("overdraftDetails").style.display=
+
 hasOverdraft==="yes"
+
 ?"block"
+
 :"none";
+
 
 $("availableNow").textContent=
 money(availableNow);
 
+
 const advice=[];
+
 
 if(bankAccuracy!=="exact"){
 
 advice.push(`
+
 <div class="tip">
-💛 <b>That is okay.</b>
+
+💛
+<b>
+That is okay.
+</b>
+
 This is only an estimate.
 You can update it whenever you check your balance.
+
 </div>
+
 `);
+
 }
+
 
 if(hasOverdraft==="yes"){
 
 advice.push(`
+
 <div class="tip">
-💛 <b>Overdraft tip:</b>
-If your budget allows, consider reducing your overdraft
+
+💛
+<b>
+Overdraft tip:
+</b>
+
+If your budget allows,
+consider reducing your overdraft
 by £50 at a time each month.
+
 Essentials always come first.
+
 </div>
+
 `);
+
 }
+
 
 const creditCards=
 debts.filter(
-d=>d.balance>0&&
+d=>
+d.balance>0&&
 d.type==="credit-card"
 );
 
-if(creditCards.length){
+
+if(
+creditCards.length
+){
 
 advice.push(`
+
 <div class="tip">
-💳 <b>Credit card tip:</b>
-If your budget allows, paying more than the minimum
+
+💳
+<b>
+Credit card tip:
+</b>
+
+If your budget allows,
+paying more than the minimum
 can help reduce your balance faster.
+
 Essentials always come first.
+
 </div>
+
 `);
+
 }
+
 
 $("bankAdvice").innerHTML=
 advice.join("");
+
 
 /* BILLS */
 
@@ -829,7 +2196,8 @@ bills.length
 
 ?bills.map((b,i)=>`
 
-<div class="row ${b.paid?"paid":""}">
+<div
+class="row ${b.paid?"paid":""}">
 
 <span class="billrow">
 
@@ -837,20 +2205,27 @@ bills.length
 class="check ${b.paid?"on":""}"
 onclick="toggleBill(${i})">
 
-${b.paid?"✓":""}
+${b.paid
+?"✓"
+:""}
 
 </button>
 
 <span>
 
 <span class="name">
+
 ${esc(b.name)}
+
 </span>
 
 <div class="muted">
 
 ${esc(b.type)}
-· ${money(b.monthly)}/month
+
+·
+
+${money(b.monthly)}/month
 
 ${b.day
 ?" · due "+b.day
@@ -865,7 +2240,9 @@ ${b.day
 <button
 class="btn secondary small"
 onclick="removeBill(${i})">
+
 Remove
+
 </button>
 
 </div>
@@ -873,10 +2250,15 @@ Remove
 `).join("")
 
 :`
+
 <div class="empty">
+
 Nothing added yet.
+
 </div>
+
 `;
+
 
 /* DEBTS */
 
@@ -886,25 +2268,32 @@ debts.length
 
 ?debts.map((d,i)=>`
 
-<div class="row ${d.balance<=0?"paid":""}">
+<div
+class="row ${d.balance<=0?"paid":""}">
 
 <span>
 
 <span class="name">
+
 ${esc(d.name)}
+
 </span>
 
 <div class="muted">
 
 ${
+
 d.balance<=0
 
 ?`🎉 PAID OFF! Amazing work!`
 
 :`
 
-Estimated balance ${money(d.balance)}
-· minimum ${money(d.minimum)}
+Estimated balance
+${money(d.balance)}
+
+· minimum
+${money(d.minimum)}
 
 ${d.rate
 ?` · ${d.rate}% APR`
@@ -919,11 +2308,13 @@ ${d.paidThisMonth
 :""}
 
 `
+
 }
 
 </div>
 
 </span>
+
 
 <div class="buttons">
 
@@ -957,10 +2348,13 @@ ${d.updatedThisMonth
 :""
 }
 
+
 <button
 class="btn secondary small"
 onclick="removeDebt(${i})">
+
 Remove
+
 </button>
 
 </div>
@@ -970,10 +2364,15 @@ Remove
 `).join("")
 
 :`
+
 <div class="empty">
+
 Nothing added yet.
+
 </div>
+
 `;
+
 
 $("debtTotal").textContent=
 
@@ -982,17 +2381,26 @@ debts.length
 ?"Total estimated debt: "+
 money(
 debts.reduce(
-(a,d)=>a+Math.max(0,d.balance),
+(a,d)=>
+a+
+Math.max(
+0,
+d.balance
+),
 0
 )
 )
 
 :"";
 
-/* MONTHLY UPDATES */
+
+/* MONTHLY DEBT UPDATES */
 
 const activeDebts=
-debts.filter(d=>d.balance>0);
+debts.filter(
+d=>d.balance>0
+);
+
 
 $("debtUpdates").innerHTML=
 
@@ -1000,7 +2408,8 @@ activeDebts.length
 
 ?activeDebts.map(d=>{
 
-const i=debts.indexOf(d);
+const i=
+debts.indexOf(d);
 
 return`
 
@@ -1009,20 +2418,25 @@ return`
 <span>
 
 <span class="name">
+
 ${esc(d.name)}
+
 </span>
 
 <div class="muted">
 
 ${
 d.paidThisMonth
+
 ?"✓ Payment marked as paid"
+
 :"Payment still due"
 }
 
 </div>
 
 </span>
+
 
 <div class="buttons">
 
@@ -1039,7 +2453,9 @@ ${d.paidThisMonth
 <button
 class="btn secondary small"
 onclick="updateDebt(${i})">
+
 Update
+
 </button>
 
 </div>
@@ -1051,12 +2467,17 @@ Update
 }).join("")
 
 :`
+
 <div class="empty">
+
 No active debts.
+
 </div>
+
 `;
 
-/* PAYOFF */
+
+/* PAYOFF ESTIMATES */
 
 $("payoff").innerHTML=
 
@@ -1065,17 +2486,24 @@ debts.length
 ?debts.map(d=>{
 
 const payment=
-d.minimum+d.extra;
+d.minimum+
+d.extra;
+
 
 let months=0;
+
 
 if(
 d.balance>0&&
 payment>0
 ){
 
-let balance=d.balance;
-const rate=(d.rate||0)/1200;
+let balance=
+d.balance;
+
+const rate=
+(d.rate||0)/1200;
+
 
 for(
 let i=1;
@@ -1083,15 +2511,27 @@ i<=1200;
 i++
 ){
 
-balance+=balance*rate;
-balance-=payment;
+balance+=
+balance*rate;
 
-if(balance<=0){
+balance-=
+payment;
+
+
+if(
+balance<=0
+){
+
 months=i;
+
 break;
+
 }
+
 }
+
 }
+
 
 const result=
 
@@ -1115,6 +2555,7 @@ year:"numeric"
 
 :"Needs review";
 
+
 return`
 
 <div class="row">
@@ -1122,17 +2563,24 @@ return`
 <span>
 
 <span class="name">
+
 ${esc(d.name)}
+
 </span>
 
 <div class="muted">
-Planned payment ${money(payment)}/month
+
+Planned payment
+${money(payment)}/month
+
 </div>
 
 </span>
 
 <span class="money">
+
 ${result}
+
 </span>
 
 </div>
@@ -1142,30 +2590,50 @@ ${result}
 }).join("")
 
 :`
+
 <div class="empty">
+
 Add a debt to see an estimate.
+
 </div>
+
 `;
+
+
+/* CALENDAR */
 
 renderCalendar();
 
-const status=$("status");
 
-if(income<=0){
+/* STATUS */
 
-status.className="notice";
+const status=
+$("status");
+
+
+if(
+income<=0
+){
+
+status.className=
+"notice";
 
 status.innerHTML=
+
 "<b>Start with your income.</b><br>"+
 "Then add your bills and debts.";
 
 }
 
-else if(left<0){
+else if(
+left<0
+){
 
-status.className="notice danger";
+status.className=
+"notice danger";
 
 status.innerHTML=
+
 "<b>Your regular commitments are higher than your income.</b><br>"+
 "Take things one step at a time.";
 
@@ -1173,70 +2641,105 @@ status.innerHTML=
 
 else{
 
-status.className="notice";
+status.className=
+"notice";
 
 status.innerHTML=
+
 "<b>You have "+
 money(left)+
 " left after regular commitments.</b><br>"+
 "Everything can be solved. One step at a time. 💛";
+
 }
+
 }
+
 
 /* BILL PAID */
 
 window.toggleBill=function(i){
 
-bills[i].paid=!bills[i].paid;
+bills[i].paid=
+!bills[i].paid;
 
 save();
+
 render();
+
 };
+
 
 /* DEBT PAID */
 
 window.toggleDebtPaid=function(i){
 
-const debt=debts[i];
+const debt=
+debts[i];
 
-if(!debt)return;
+if(!debt){
+
+return;
+
+}
 
 debt.paidThisMonth=
 !debt.paidThisMonth;
 
-if(debt.paidThisMonth){
+
+if(
+debt.paidThisMonth
+){
 
 debt.updatedThisMonth=true;
 
 }
 
+
 save();
+
 render();
+
 };
+
 
 /* REMOVE BILL */
 
 window.removeBill=function(i){
 
-if(confirm(
+if(
+confirm(
 "Remove this bill?"
-)){
+)
+){
 
-bills.splice(i,1);
+bills.splice(
+i,
+1
+);
 
 save();
+
 render();
 
 }
+
 };
+
 
 /* REMOVE DEBT */
 
 window.removeDebt=function(i){
 
-const debt=debts[i];
+const debt=
+debts[i];
 
-if(!debt)return;
+if(!debt){
+
+return;
+
+}
+
 
 const message=
 
@@ -1250,15 +2753,24 @@ Remove it from your active debts?`
 
 This will stop it being included in your monthly budget.`;
 
-if(confirm(message)){
 
-debts.splice(i,1);
+if(
+confirm(message)
+){
+
+debts.splice(
+i,
+1
+);
 
 save();
+
 render();
 
 }
+
 };
+
 
 /* UPDATE DEBT */
 
@@ -1266,9 +2778,12 @@ window.updateDebt=function(i){
 
 updateIndex=i;
 
-const d=debts[i];
+const d=
+debts[i];
 
-$("updateName").textContent=d.name;
+
+$("updateName").textContent=
+d.name;
 
 $("updateBalance").textContent=
 money(d.balance);
@@ -1279,36 +2794,61 @@ $("minimumPaid").checked=
 $("extraPaid").value=
 d.extraPaid||"";
 
+
 $("updateModal").style.display=
 "flex";
+
 };
+
 
 /* OPEN MODALS */
 
 $("incomeBtn").onclick=()=>{
-$("incomeModal").style.display="flex";
+
+$("incomeInput").value=
+income||"";
+
+$("incomeModal").style.display=
+"flex";
+
 };
+
 
 $("billBtn").onclick=()=>{
-$("billModal").style.display="flex";
+
+$("billModal").style.display=
+"flex";
+
 };
+
 
 $("debtBtn").onclick=()=>{
-$("debtModal").style.display="flex";
+
+$("debtModal").style.display=
+"flex";
+
 };
 
+
+/* CLOSE MODALS */
+
 document
-.querySelectorAll("[data-close]")
+.querySelectorAll(
+"[data-close]"
+)
 .forEach(x=>{
 
 x.onclick=()=>{
 
-$(x.dataset.close).style.display=
+$(
+x.dataset.close
+).style.display=
 "none";
 
 };
 
 });
+
 
 /* OVERDRAFT */
 
@@ -1324,10 +2864,12 @@ $("hasOverdraft").value==="yes"
 
 };
 
+
 /* PAY DETAILS */
 
 $("payType").onchange=
 payDetails;
+
 
 /* SAVE BANK */
 
@@ -1336,10 +2878,15 @@ $("saveBank").onclick=()=>{
 const raw=
 $("bankBalance").value;
 
+
 bankBalance=
+
 raw===""
+
 ?0
+
 :Number(raw);
+
 
 bankAccuracy=
 $("bankAccuracy").value;
@@ -1357,10 +2904,13 @@ Number(
 $("overdraftLimit").value
 )||0;
 
+
 save();
+
 render();
 
 };
+
 
 /* SAVE PAY */
 
@@ -1369,14 +2919,20 @@ $("savePay").onclick=()=>{
 const type=
 $("payType").value;
 
-data.payType=type;
 
-if(type==="monthly"){
+data.payType=
+type;
+
+
+if(
+type==="monthly"
+){
 
 const day=
 Number(
 $("payDay").value
 );
+
 
 if(
 !Number.isInteger(day)||
@@ -1389,13 +2945,17 @@ alert(
 );
 
 return;
+
 }
 
-data.payDay=day;
+
+data.payDay=
+day;
 
 delete data.firstPayDate;
 
 }
+
 
 else if(
 type==="weekly"||
@@ -1405,32 +2965,43 @@ type==="four"
 const date=
 $("firstPayDate").value;
 
-if(!date){
+
+if(
+!date
+){
 
 alert(
 "Please enter your next payday."
 );
 
 return;
+
 }
 
-data.firstPayDate=date;
+
+data.firstPayDate=
+date;
 
 delete data.payDay;
 
 }
+
 
 else{
 
 delete data.payDay;
+
 delete data.firstPayDate;
 
 }
 
+
 save();
+
 render();
 
 };
+
 
 /* SAVE INCOME */
 
@@ -1440,6 +3011,7 @@ const value=
 Number(
 $("incomeInput").value
 );
+
 
 if(
 !isFinite(value)||
@@ -1451,18 +3023,77 @@ alert(
 );
 
 return;
+
 }
 
-income=value;
+
+income=
+value;
+
 
 save();
+
 
 $("incomeModal").style.display=
 "none";
 
+
 render();
 
 };
+
+
+/* SAVE CALCULATOR */
+
+$("saveCalculator").onclick=()=>{
+
+const mainIncome=
+Number(
+$("calcIncome").value
+)||0;
+
+const extraIncome=
+Number(
+$("calcExtraIncome").value
+)||0;
+
+const roughBills=
+Number(
+$("calcRoughBills").value
+)||0;
+
+
+if(
+mainIncome<0||
+extraIncome<0||
+roughBills<0
+){
+
+alert(
+"Please enter valid amounts."
+);
+
+return;
+
+}
+
+
+calcIncome=
+mainIncome;
+
+calcExtraIncome=
+extraIncome;
+
+calcRoughBills=
+roughBills;
+
+
+save();
+
+render();
+
+};
+
 
 /* SAVE ALLOWANCE */
 
@@ -1472,6 +3103,7 @@ const value=
 Number(
 $("allowance").value
 );
+
 
 if(
 !isFinite(value)||
@@ -1483,14 +3115,20 @@ alert(
 );
 
 return;
+
 }
 
-allowance=value;
+
+allowance=
+value;
+
 
 save();
+
 render();
 
 };
+
 
 /* SAVE BILL */
 
@@ -1500,6 +3138,7 @@ const amount=
 Number(
 $("billAmount").value
 );
+
 
 if(
 !isFinite(amount)||
@@ -1511,7 +3150,9 @@ alert(
 );
 
 return;
+
 }
+
 
 bills.push({
 
@@ -1537,18 +3178,23 @@ paid:false
 
 });
 
+
 save();
+
 
 $("billName").value="";
 $("billAmount").value="";
 $("billDay").value="";
 
+
 $("billModal").style.display=
 "none";
+
 
 render();
 
 };
+
 
 /* INTEREST */
 
@@ -1564,6 +3210,7 @@ $("knowInterest").value==="yes"
 
 };
 
+
 /* SAVE DEBT */
 
 $("saveDebt").onclick=()=>{
@@ -1578,6 +3225,7 @@ Number(
 $("debtMinimum").value
 );
 
+
 if(
 !isFinite(balance)||
 balance<=0
@@ -1588,7 +3236,9 @@ alert(
 );
 
 return;
+
 }
+
 
 if(
 !isFinite(minimum)||
@@ -1600,9 +3250,12 @@ alert(
 );
 
 return;
+
 }
 
+
 let rate=0;
+
 
 if(
 $("knowInterest").value==="yes"
@@ -1612,7 +3265,9 @@ rate=
 Number(
 $("interest").value
 )||0;
+
 }
+
 
 debts.push({
 
@@ -1623,11 +3278,14 @@ name:
 $("debtName").value.trim()||
 "Debt",
 
-balance:balance,
+balance:
+balance,
 
-minimum:minimum,
+minimum:
+minimum,
 
-rate:rate,
+rate:
+rate,
 
 extra:
 Number(
@@ -1639,15 +3297,20 @@ Number(
 $("debtDay").value
 )||0,
 
-updatedThisMonth:false,
+updatedThisMonth:
+false,
 
-paidThisMonth:false,
+paidThisMonth:
+false,
 
-extraPaid:0
+extraPaid:
+0
 
 });
 
+
 save();
+
 
 $("debtName").value="";
 $("debtBalance").value="";
@@ -1656,39 +3319,68 @@ $("interest").value="";
 $("debtDay").value="";
 $("extra").value="0";
 
+
 $("debtModal").style.display=
 "none";
+
 
 render();
 
 };
 
+
 /* SAVE DEBT UPDATE */
 
 $("saveUpdate").onclick=()=>{
 
-if(updateIndex<0)return;
+if(
+updateIndex<0
+){
+
+return;
+
+}
+
 
 const d=
-debts[updateIndex];
+debts[
+updateIndex
+];
+
 
 const extra=
 Number(
 $("extraPaid").value
 )||0;
 
+
 const minimumPaid=
 $("minimumPaid").checked;
 
+
+/* Apply estimated monthly interest */
+
 const interest=
 d.balance*
-((d.rate||0)/1200);
+(
+(d.rate||0)/1200
+);
+
+
+/* Payment made */
 
 const payment=
-(minimumPaid
+
+(
+minimumPaid
 ?d.minimum
 :0
-)+extra;
+)
+
++extra;
+
+
+/* Update balance */
 
 d.balance=
 Math.max(
@@ -1698,26 +3390,39 @@ interest-
 payment
 );
 
-d.extraPaid=extra;
+
+d.extraPaid=
+extra;
+
 d.paidThisMonth=
 minimumPaid;
+
 d.updatedThisMonth=
 true;
 
+
 save();
+
 
 $("updateModal").style.display=
 "none";
+
 
 render();
 
 };
 
+
+/* START APP */
+
 $("payType").value=
 data.payType||"";
 
+
 payDetails();
+
 dailyMessage();
+
 render();
 
 </script>
